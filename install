@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# depends: nerd-fonts
+
+CONFIG_SRC_DIR=~/Documents/configuration/src
+
+brew install ranger w3m
+sudo apt-get install w3m-img
+
+if [ ! -d $CONFIG_SRC_DIR/.ranger ]; then
+    git clone https://github.com/CaptainQuirk/.ranger $CONFIG_SRC_DIR/.ranger-config
+    ln -s $CONFIG_SRC_DIR/.ranger-config ~/.config/ranger
+fi
+
+cd $CONFIG_SRC_DIR/.ranger-config
+git pull
+cd -
+
+brew install highlight
+sudo apt-get install xpdf
