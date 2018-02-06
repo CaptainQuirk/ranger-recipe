@@ -12,9 +12,9 @@ if [ ! -d $CONFIG_SRC_DIR/.ranger ]; then
     ln -s $CONFIG_SRC_DIR/.ranger-config ~/.config/ranger
 fi
 
-cd $CONFIG_SRC_DIR/.ranger-config
+cd $CONFIG_SRC_DIR/.ranger-config || exit 1
 git pull
-cd -
+cd - || exit 2
 
 brew install highlight
 sudo apt-get install xpdf
