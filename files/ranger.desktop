@@ -1,0 +1,9 @@
+[Desktop Entry]
+
+Type=Application
+Version=1.0
+Name=Ranger
+Comment=Terminal wrapper around ranger
+Path=/home/leonard
+Exec=x-ranger %f
+Icon=/home/leonard/.local/share/icons/ranger.png

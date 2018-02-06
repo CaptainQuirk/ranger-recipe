@@ -3,11 +3,12 @@
 # depends: nerd-fonts
 
 CONFIG_SRC_DIR=~/Documents/configuration/src
+RANGER_RECIPE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 brew install ranger w3m
 sudo apt-get install w3m-img
 
-if [ ! -d $CONFIG_SRC_DIR/.ranger ]; then
+if [ ! -d $CONFIG_SRC_DIR/.ranger-config ]; then
     git clone https://github.com/CaptainQuirk/.ranger $CONFIG_SRC_DIR/.ranger-config
     ln -s $CONFIG_SRC_DIR/.ranger-config ~/.config/ranger
 fi
@@ -16,6 +17,18 @@ cd $CONFIG_SRC_DIR/.ranger-config || exit 1
 git pull
 cd - || exit 2
 
+sudo cp --update "$RANGER_RECIPE_DIR/files/x-ranger" /usr/local/bin
+
+cp --update "$RANGER_RECIPE_DIR/files/ranger.desktop" "$HOME/.local/share/applications"
+cp --update "$RANGER_RECIPE_DIR/files/ranger.png" "$HOME/.local/share/icons"
+
+grep -nri "inode" "$HOME/.local/share/applications/mimeapps.list" > /dev/null 2>&1
+if [ $? -eq 1 ]; then
+    echo "inode/directory=x-ranger.desktop" >> "$HOME/.local/share/applications/mimeapps.list"
+fi
+
+
+sudo apt install zenity
 brew install highlight
 sudo apt-get install xpdf
 brew install atool

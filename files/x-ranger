@@ -1,0 +1,20 @@
+#!/bin/bash
+
+DIRECTORY=
+if [ -z "$1" ]; then
+    DIRECTORY=$HOME
+else
+    if [ ! -d "$1" ]; then
+        zenity --error \
+            --text "<u>$1</u> directory does not exist"
+        exit 2
+    fi
+
+    DIRECTORY="$1"
+fi
+
+urxvt -title "Ranger"                             \
+      -icon "$HOME/.local/share/icons/ranger.png" \
+      -cd "$DIRECTORY"                            \
+      -geometry "180x50"                          \
+      -e ranger
