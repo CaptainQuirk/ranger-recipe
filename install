@@ -5,7 +5,8 @@
 CONFIG_SRC_DIR=~/Documents/configuration/src
 RANGER_RECIPE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-brew install ranger w3m
+shef brew ranger w3m
+shef brew w3m
 sudo apt-get install w3m-img
 
 if [ ! -d $CONFIG_SRC_DIR/.ranger-config ]; then
@@ -29,6 +30,6 @@ fi
 
 
 sudo apt install zenity
-brew install highlight
+shef install highlight
 sudo apt-get install xpdf
-brew install atool
+shef install atool
