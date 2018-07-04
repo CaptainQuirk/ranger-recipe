@@ -7,7 +7,7 @@ RANGER_RECIPE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 shef brew ranger w3m
 shef brew w3m
-sudo apt-get install w3m-img
+shef apt w3m-img
 
 if [ ! -d $CONFIG_SRC_DIR/.ranger-config ]; then
     git clone https://github.com/CaptainQuirk/.ranger $CONFIG_SRC_DIR/.ranger-config
@@ -29,7 +29,7 @@ if [ $? -eq 1 ]; then
 fi
 
 
-sudo apt install zenity
+shef apt zenity
 shef install highlight
-sudo apt-get install xpdf
+shef apt xpdf
 shef install atool
