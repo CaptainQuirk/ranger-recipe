@@ -30,6 +30,6 @@ fi
 
 
 shef apt zenity
-shef install highlight
+shef apt highlight
 shef apt xpdf
-shef install atool
+shef brew atool
