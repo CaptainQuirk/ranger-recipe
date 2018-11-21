@@ -1,7 +1,7 @@
 {
-  "name": "hillaryklingon/ranger-recipe",
+  "name": "captainquirk/ranger-recipe",
   "description": "Install ranger file manager with custom configuration",
   "dependencies": [
-    "hyllaryklingon/git-recipe"
+    "captainquirk/git-recipe"
   ]
 }
